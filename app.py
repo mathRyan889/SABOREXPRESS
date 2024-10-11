@@ -1,5 +1,9 @@
 import os
 from modelos.restaurante import Restaurante
+from modelos.cardapio import item_cardapio
+from modelos.cardapio.bebida import Bebida
+from modelos.cardapio.prato import Prato
+from modelos.cardapio.sobrema import Sobremesa
 
 def titulo():
     print('=-'*30)
@@ -36,17 +40,23 @@ def opcao_escolhida():
     else:
         print('opção invalida...')
         
-    
+restaurante_praca = Restaurante('praça','Gourmet')
+bebida_suco = Bebida('Suco de melancia',5.00, 'grande')
+bebida_suco.aplicar_desconto()
+prato_pao = Prato('Pao',2.00,'O melhor pão da cidade')
+sorvete = Sobremesa('Sorvete de morango',12.00,'Gelado')
+prato_pao.aplicar_desconto()
+restaurante_praca.adicionar_no_cardapio(bebida_suco)
+restaurante_praca.adicionar_no_cardapio(prato_pao)
+restaurante_praca.adicionar_no_cardapio(sorvete)
 
-restaurante_praca = Restaurante('Praça', 'Gourmet')
-restaurante_praca.receber_avaliacao('Gui', 10)
-restaurante_praca.receber_avaliacao('Lais', 8)
-restaurante_praca.receber_avaliacao('Emy', 5)
+
 
 def main():
-    titulo()
+    '''titulo()
     exibir_opçoes()
-    opcao_escolhida()
+    opcao_escolhida()'''
+    restaurante_praca.exibir_cardapio
 
 
 if __name__ == '__main__':
